@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2>Create an Event {{ user.name }}</h2>
+    <h2>Create an Event {{ user.user.name }}</h2>
     <!-- <p>Total users {{ totaluserss }}</p> -->
     <form @submit.prevent="createEvent">
       <label>Select a category</label>
@@ -80,7 +80,7 @@ export default {
   methods: {
     createEvent() {
       this.$store
-        .dispatch("createEvent", this.event)
+        .dispatch("events/createEvent", this.event)
         .then(() => {
           this.$router.push({
             name: "show_event",
@@ -91,7 +91,7 @@ export default {
         .catch(() => console.log("There was a problem creating your Event"));
     },
     createFreshEvent() {
-      const user = this.$store.state.user;
+      const user = this.$store.state.user.user;
       const id = Math.floor(Math.random() * 10000000);
       return {
         id: id,
