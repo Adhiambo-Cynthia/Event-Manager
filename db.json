@@ -237,6 +237,240 @@
           "name": "Mary Gordon"
         }
       ]
+    },
+    {
+      "id": 5946236,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "Bussiness and Entrepreneurship",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "Startups 101",
+      "description": "A look into what it takes to successfully run a startup",
+      "location": "Lagos, Nigeria",
+      "date": "2020-04-01T10:11:00.000Z",
+      "time": "10:00",
+      "attendees": []
+    },
+    {
+      "id": 3111012,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "Food and nutrition",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "Maintaining a healthy lifestyle",
+      "description": "",
+      "location": "Nairobi",
+      "date": "2020-04-11T10:19:00.000Z",
+      "time": "12:00",
+      "attendees": []
+    },
+    {
+      "id": 196052,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "SUCCESS STEPS",
+      "description": "",
+      "location": "nairobi",
+      "date": "2020-05-07T10:47:00.000Z",
+      "time": "11:00",
+      "attendees": []
+    },
+    {
+      "id": 2042611,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "cynthia,my story",
+      "description": "",
+      "location": "berlin",
+      "date": "2020-06-11T10:49:00.000Z",
+      "time": "9:00",
+      "attendees": []
+    },
+    {
+      "id": 4948734,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 4777959,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 2803702,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 5317929,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "Burner Boy concert",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 6350052,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "Beyonce concert",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 2329130,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "Food and nutrition",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "Being A vegen",
+      "description": "",
+      "location": "London",
+      "date": "2020-07-10T12:19:00.000Z",
+      "time": "9:00",
+      "attendees": []
+    },
+    {
+      "id": 4348153,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "Food and nutrition",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "My slimming journey",
+      "description": "",
+      "location": "Paris",
+      "date": "2020-04-02T12:27:00.000Z",
+      "time": "15:00",
+      "attendees": []
+    },
+    {
+      "id": 1187766,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "Bussiness and Entrepreneurship",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "The Making of Facebook",
+      "description": "How it came to be the trillion dollar  company",
+      "location": "California",
+      "date": "2020-09-05T13:17:00.000Z",
+      "time": "7:00",
+      "attendees": []
+    },
+    {
+      "id": 4860570,
+      "user": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "category": "Technology and science",
+      "organizer": {
+        "id": "10021",
+        "name": "Cynthia Adhiambo"
+      },
+      "title": "Something Here",
+      "description": "About something",
+      "location": "Somehere",
+      "date": "2020-04-10T13:35:00.000Z",
+      "time": "7:00",
+      "attendees": []
     }
   ]
 }

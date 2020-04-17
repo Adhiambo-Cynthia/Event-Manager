@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <navbar />
+    <Notificationcont />
     <router-view :key="$route.fullPath" />
   </div>
 </template>
@@ -91,6 +92,9 @@ small {
 .-text-error {
   color: tomato;
 }
+.-text-success {
+  color: blue;
+}
 .-text-gray {
   color: rgba(0, 0, 0, 0.5);
 }
@@ -113,7 +117,7 @@ small {
   background: linear-gradient(to right, #16c0b0, #84cf6a);
   color: #fff;
 }
-button,
+
 label,
 input,
 optgroup,
@@ -124,12 +128,13 @@ textarea {
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
+  
 }
-button,
+
 input {
   overflow: visible;
 }
-button,
+
 select {
   text-transform: none;
 }
@@ -137,7 +142,9 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: none;
+   color: white;
+    font-weight: bold;
+    background-color: rgb(2, 71, 71);
 }
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -233,9 +240,11 @@ select::ms-expand {
 </style>
 <script>
 import navbar from "@/components/nav.vue";
+import Notificationcont from '@/components/Notificationcont.vue';
 export default {
   components: {
-    navbar
+    navbar,
+    Notificationcont
   }
 }
 </script>

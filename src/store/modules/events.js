@@ -1,14 +1,11 @@
 import EventServices from "@/services/EventServices.js";
-export const namespaced=true
+export const namespaced = true;
 export const state = {
   events: [],
   event: {},
   totalEvents: null
 };
 export const getters = {
-  totalusers: state => {
-    return state.users.length;
-  },
   getEventById: state => id => {
     return state.events.find(event => event.id === id);
   }
@@ -25,15 +22,33 @@ export const mutations = {
   },
   TOTAL_EVENTS: (state, total) => {
     state.totalEvents = total;
+  },
+  DELETE_EVENT: (state, id) => {
+    state.events.splice(id, 1)
   }
 };
 export const actions = {
-  createEvent: ({ commit }, event) => {
-    return EventServices.postEvent(event).then(() =>
-      commit("ADD_EVENT", event)
-    );
+  createEvent: ({ commit, dispatch }, event) => {
+    return EventServices.postEvent(event)
+      .then(() => {
+        commit("ADD_EVENT", event);
+        const notification = {
+          type: "success",
+          message: "Event created successfully"
+        };
+        dispatch("notification/add", notification, { root: true });
+      })
+      .catch(error => {
+        console.log("There was a problem creating your event" + error.message)
+        const notification = {
+          type: "error",
+          message: "There was a problem creating your event" + error.message
+        };
+        dispatch("notification/add", notification, { root: true })
+        throw error
+      });
   },
-  fetchEvents({ commit }, { perPage, page }) {
+  fetchEvents({ commit, dispatch }, { perPage, page }) {
     EventServices.getEvents(perPage, page)
       .then(response => {
         console.log("Total Events are " + response.headers["x-total-count"]);
@@ -41,10 +56,15 @@ export const actions = {
         commit("SET_EVENTS", response.data);
       })
       .catch(error => {
+        const notification = {
+          type: "error",
+          message: "There was a problem fetching events" + error.message
+        };
+        dispatch("notification/add", notification, { root: true }); //dispatching the error to the notification module
         console.log("There was an error:", error.response); // Logs out the error
       });
   },
-  fetchEvent({ commit, getters }, id) {
+  fetchEvent({ commit, getters, dispatch }, id) {
     var event = getters.getEventById(id);
     if (event) {
       commit("SET_EVENT", event);
@@ -53,7 +73,17 @@ export const actions = {
         .then(response => {
           commit("SET_EVENT", response.data);
         })
-        .catch(error => console.log("An error occurred", error.response));
+        .catch(error => {
+          const notification = {
+            type: "error",
+            message: "There was a problem fetching this event" + error.message
+          };
+          dispatch("notification/add", notification, { root: true });
+          console.log("An error occurred", error.response);
+        });
     }
+  },
+  deletetheEvent({commit}, id){
+    commit("DELET_EVENT", id)
   }
 };
