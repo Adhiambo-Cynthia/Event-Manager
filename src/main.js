@@ -3,10 +3,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
 import 'nprogress/nprogress.css'
+import Vuelidate from 'vuelidate'
 // import icon from "@/components/icon.vue"
 // Vue.component("icon", icon);
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
+Vue.use(Vuelidate)
 
 const requireComponent = require.context(
   "./components",
