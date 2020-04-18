@@ -64,7 +64,7 @@ export const actions = {
         console.log("There was an error:", error.response); // Logs out the error
       });
   },
-  fetchEvent({ commit, getters, dispatch }, id) {
+  fetchEvent({ commit, getters }, id) {
     var event = getters.getEventById(id);
     if (event) {
       commit("SET_EVENT", event);
@@ -73,14 +73,15 @@ export const actions = {
         .then(response => {
           commit("SET_EVENT", response.data);
         })
-        .catch(error => {
-          const notification = {
-            type: "error",
-            message: "There was a problem fetching this event" + error.message
-          };
-          dispatch("notification/add", notification, { root: true });
-          console.log("An error occurred", error.response);
-        });
+        //removed so that we can use the 404 page instead
+        // .catch(error => {
+        //   const notification = {
+        //     type: "error",
+        //     message: "There was a problem fetching this event" + error.message
+        //   };
+        //   dispatch("notification/add", notification, { root: true });
+        //   console.log("An error occurred", error.response);
+        // });
     }
   },
   deletetheEvent({commit}, id){
