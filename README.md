@@ -1,4 +1,4 @@
-# eventmanager
+# Event manager App
 
 ## Project setup
 ```
