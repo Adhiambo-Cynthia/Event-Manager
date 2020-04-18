@@ -63,7 +63,7 @@ export default {
   }),
   methods: {
     deleteEvent() {
-      this.$store.dispatch("events/deletetheEvent", event.id);
+      this.$store.dispatch("events/deletetheEvent", this.id);
     }
   }
 };
