@@ -85,6 +85,6 @@ export const actions = {
     }
   },
   deletetheEvent({commit}, id){
-    commit("DELET_EVENT", id)
+    commit("DELETE_EVENT", id)
   }
 };

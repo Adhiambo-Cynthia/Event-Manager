@@ -1,6 +1,9 @@
 <template>
   <div>
     event {{ id }}
+    <span>
+      <BaseButton @click="deleteEvent(event.id)" buttonClass="-fill-gradient">DELETE EVENT</BaseButton>
+    </span>
     <div class="event-header">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h1 class="title">{{ event.title }}</h1>
@@ -57,7 +60,12 @@ export default {
   // },
   computed: mapState({
     event: state => state.events.event
-  })
+  }),
+  methods: {
+    deleteEvent() {
+      this.$store.dispatch("events/deletetheEvent", event.id);
+    }
+  }
 };
 </script>
 

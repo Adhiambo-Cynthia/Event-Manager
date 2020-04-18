@@ -10,7 +10,8 @@
       <BaseIcon name="users">
         <span slot="attendees"> {{ event.attendees.length }} attending</span>
       </BaseIcon>
-      <BaseButtton @click="deleteEvent(event.id)">DELETE EVENT</BaseButtton>
+      
+
     </div>
   </router-link>
 </template>
@@ -20,12 +21,8 @@ export default {
   name: "EventCard",
   props: {
     event: Object
-  },
-  methods: {
-    deleteEvent() {
-      this.$store.dispatch("events/deletetheEvent", event.id);
-    }
   }
+  
 };
 </script>
 

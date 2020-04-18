@@ -7,23 +7,22 @@
       <select v-model="event.category">
         <option v-for="cat in categories" :key="cat">{{ cat }}</option>
       </select>
+
       <h3>Name and describe your event</h3>
-      <div class="field">
-        <label>Title</label>
-        <input
-          v-model="event.title"
-          type="text"
-          placeholder="Add an event title"
-        />
-      </div>
-      <div class="field">
-        <label>Description</label>
-        <input
-          v-model="event.description"
-          type="text"
-          placeholder="Add a description"
-        />
-      </div>
+      <BaseInput
+        label="Title"
+        v-model="event.title"
+        type="text"
+        placeholder="Add an event title"
+        class="field"
+      />
+      <BaseInput
+        label="Description"
+        v-model="event.description"
+        type="text"
+        placeholder="Add a description"
+        class="field"
+      />
       <h3>Where is your event?</h3>
       <div class="field">
         <label>Location</label>
@@ -44,7 +43,8 @@
           <option v-for="time in times" :key="time">{{ time }}</option>
         </select>
       </div>
-      <input type="submit" class="button -fill-gradient" value="Submit" />
+      <BaseButton type="submit" buttonClass="-fill-gradient"></BaseButton>
+      <!-- <input type="submit" class="button -fill-gradient" value="Submit" /> -->
     </form>
   </div>
 </template>
@@ -52,7 +52,7 @@
 <script>
 import { mapState } from "vuex";
 import Datepicker from "vuejs-datepicker";
-import NProgress from 'nprogress'
+import NProgress from "nprogress";
 export default {
   components: {
     Datepicker
@@ -80,19 +80,18 @@ export default {
   },
   methods: {
     createEvent() {
-      NProgress.start() 
+      NProgress.start();
       this.$store
         .dispatch("events/createEvent", this.event)
-        .then(
-          () => {
+        .then(() => {
           this.$router.push({
             name: "ShowEvent",
             params: { id: this.event.id }
           });
-          this.event = this.createFreshEvent()
-    })
+          this.event = this.createFreshEvent();
+        })
         .catch(() => {
-          NProgress.done() // <-- if errors out stop the progress bar
+          NProgress.done(); // <-- if errors out stop the progress bar
         });
     },
     createFreshEvent() {
