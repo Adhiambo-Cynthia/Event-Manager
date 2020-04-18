@@ -1,16 +1,16 @@
 # Event manager App
-## Prerequisite:
+## Pre-requisites:
 ### Vue CLI
 ### Vue Router
 ### Vuex
 ### API calls with Axios
-### Vue CLI
+### Vue components
 
 ## Project setup
 ```
 npm install
 ```
-### This will install all the dependancies used in the Project
+This will install all the dependancies used in the Project
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -45,6 +45,7 @@ Learn more on the [Axios library] (https://www.npmjs.com/package/axios)
 npm install vuex
 ```
 ### Lodash
+#### When we are doing automatic global registration, we'll need to install lodash inorder to convert our global component's names to camelCase.
 ```
 npm install lodash
 ```
@@ -70,7 +71,13 @@ import Vuelidate from 'vuelidate'
 ```
 ### Vue-router
 ```
-npm install
+npm install vue-router
+```
+#### We use it in the index.js of the router folder
+```
+import VueRouter from 'vue-router'
+
+    Vue.use(VueRouter)
 ```
 ## Other libraries used
 ### Json-Server
@@ -78,7 +85,7 @@ npm install
 ```
 npm install -g json-server
 ```
-#### We then turns on json-server and tells it to watch our db.json file, which is our mock database.
+#### We then turn on json-server and tells it to watch our db.json file, which is our mock database.
 ```
 json-server --watch db.json
 ```
