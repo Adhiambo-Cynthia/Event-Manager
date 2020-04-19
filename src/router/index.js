@@ -55,6 +55,11 @@ const routes = [
     name: "NetworkIssue",
     component: NetworkIssue,
     props: true  //tells it to expect some parameters
+  },
+  {
+    path: "/example",
+    name: "Example",
+    component: () => import("../views/Example.vue")
   }
 ];
 

@@ -3,10 +3,18 @@
     <h2>Create an Event {{ user.user.name }}</h2>
     <!-- <p>Total users {{ totaluserss }}</p> -->
     <form @submit.prevent="createEvent">
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option v-for="cat in categories" :key="cat">{{ cat }}</option>
-      </select>
+      <BaseSelect
+        label="Select a Category"
+        v-model="event.category"
+        :options="categories"
+        @blur="$v.event.category.$touch()"
+        :class="{ error: $v.event.category.$error }"
+      />
+      <template v-if="$v.event.category.$error">
+        <p v-if="!$v.event.category.required" class="errorMessage">
+          Category required
+        </p>
+      </template>
 
       <h3>Name and describe your event</h3>
       <BaseInput
@@ -15,7 +23,14 @@
         type="text"
         placeholder="Add an event title"
         class="field"
+        @blur="$v.event.title.$touch()"
+        :class="{ error: $v.event.title.$error }"
       />
+      <template v-if="$v.event.title.$error">
+        <p v-if="!$v.event.title.required" class="errorMessage">
+          Title required
+        </p>
+      </template>
       <BaseInput
         label="Description"
         v-model="event.description"
@@ -35,15 +50,33 @@
       <h3>When is your event?</h3>
       <div class="field">
         <label>Date</label>
-        <datepicker v-model="event.date" placeholder="Select a date" />
+        <datepicker
+          v-model="event.date"
+          placeholder="Select a date"
+          :input-class="{ error: $v.event.date.$error }"
+          @opened="$v.event.date.$touch()"
+        />
       </div>
+      <template v-if="$v.event.date.$error">
+        <p v-if="!$v.event.date.required" class="errorMessage">
+          Date required
+        </p>
+      </template>
       <div class="field">
         <label>Select a time</label>
         <select v-model="event.time">
           <option v-for="time in times" :key="time">{{ time }}</option>
         </select>
       </div>
-      <BaseButton type="submit" buttonClass="-fill-gradient"></BaseButton>
+      <BaseButton
+        type="submit"
+        buttonClass="-fill-gradient"
+        :disabled="$v.$anyError"
+      ></BaseButton>
+      <p v-if="$v.$anyError" class="errorMessage">
+        Please fill out the required field(s)
+      </p>
+
       <!-- <input type="submit" class="button -fill-gradient" value="Submit" /> -->
     </form>
   </div>
@@ -53,6 +86,7 @@
 import { mapState } from "vuex";
 import Datepicker from "vuejs-datepicker";
 import NProgress from "nprogress";
+import { required } from "vuelidate/lib/validators";
 export default {
   components: {
     Datepicker
@@ -67,6 +101,15 @@ export default {
       event: this.createFreshEvent()
     };
   },
+  validations: {
+    event: {
+      title: { required },
+      description: { required },
+      category: { required },
+      location: { required },
+      date: { required }
+    }
+  },
   computed: {
     // totaluserss() {
     //   return this.$store.getters.totalusers;
@@ -80,19 +123,22 @@ export default {
   },
   methods: {
     createEvent() {
-      NProgress.start();
-      this.$store
-        .dispatch("events/createEvent", this.event)
-        .then(() => {
-          this.$router.push({
-            name: "ShowEvent",
-            params: { id: this.event.id }
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        NProgress.start();
+        this.$store
+          .dispatch("events/createEvent", this.event)
+          .then(() => {
+            this.$router.push({
+              name: "ShowEvent",
+              params: { id: this.event.id }
+            });
+            this.event = this.createFreshEvent();
+          })
+          .catch(() => {
+            NProgress.done(); // <-- if errors out stop the progress bar
           });
-          this.event = this.createFreshEvent();
-        })
-        .catch(() => {
-          NProgress.done(); // <-- if errors out stop the progress bar
-        });
+      }
     },
     createFreshEvent() {
       const user = this.$store.state.user.user;
