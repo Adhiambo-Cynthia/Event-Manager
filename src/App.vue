@@ -239,6 +239,7 @@ select::ms-expand {
 <script>
 import navbar from "@/components/nav.vue";
 import Notificationcont from '@/components/Notificationcont.vue';
+
 export default {
   components: {
     navbar,

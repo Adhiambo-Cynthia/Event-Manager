@@ -8,6 +8,8 @@ import Vuelidate from 'vuelidate'
 // Vue.component("icon", icon);
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
+import Datefilter from '@/filters/date.js'
+Vue.filter('date',Datefilter)
 Vue.use(Vuelidate)
 
 const requireComponent = require.context(
