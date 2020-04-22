@@ -8,7 +8,7 @@ const apiClient = axios.create({
     Accept: "application/json",
     "Content-Type": "application/json"
   },
-  timeout: 15000  //timeouts if the API call takes more than 15 seconds to respond
+  timeout: 10000  //timeouts if the API call takes more than 15 seconds to respond
 });
 apiClient.interceptors.request.use(config => {
   // Called on request
@@ -30,5 +30,8 @@ export default {
   },
   postEvent(event) {
     return apiClient.post("/events", event);
+  }, 
+  deleteEvent(id){
+    return apiClient.delete("/events/" + id)
   }
 };

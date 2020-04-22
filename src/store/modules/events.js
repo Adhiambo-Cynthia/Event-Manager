@@ -85,6 +85,10 @@ export const actions = {
     }
   },
   deletetheEvent({commit}, id){
-    commit("DELETE_EVENT", id)
+    EventServices.deleteEvent(id)
+    .then(
+      commit("DELETE_EVENT", id)
+    )
+    
   }
 };

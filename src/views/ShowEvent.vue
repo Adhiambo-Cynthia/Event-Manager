@@ -2,7 +2,11 @@
   <div>
     event {{ id }}
     <span>
-      <BaseButton @click="deleteEvent(event.id)" buttonClass="-fill-gradient">DELETE EVENT</BaseButton>
+      <BaseButton
+        @click.prevent="deleteEvent(event.id)"
+        buttonClass="-fill-gradient"
+        >DELETE EVENT
+      </BaseButton>
     </span>
     <div class="event-header">
       <span class="eyebrow">@{{ event.time }} on {{ event.date | date }}</span>
@@ -49,21 +53,25 @@ export default {
   },
   // created() {
   //   this.$store.dispatch("events/fetchEvent", this.id);
-    //same as importing mapActions,calling fetchevent in methods and the using this.fetchEvent(this.id) in created
+  //same as importing mapActions,calling fetchevent in methods and the using this.fetchEvent(this.id) in created
 
-    //if the data wasn't going through vuex
-    // EventServices.getEvent(parseInt(this.id))
-    //   .then(response => {
-    //     this.event = response.data;
-    //   })
-    //   .catch(error => console.log("An error occurred", error.response));
+  //if the data wasn't going through vuex
+  // EventServices.getEvent(parseInt(this.id))
+  //   .then(response => {
+  //     this.event = response.data;
+  //   })
+  //   .catch(error => console.log("An error occurred", error.response));
   // },
   computed: mapState({
     event: state => state.events.event
   }),
   methods: {
     deleteEvent() {
-      this.$store.dispatch("events/deletetheEvent", this.id);
+      this.$store.dispatch("events/deletetheEvent", this.id).then(() => {
+        this.$router.push({
+          name: "Events"
+        });
+      });
     }
   }
 };

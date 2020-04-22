@@ -1,62 +1,6 @@
 {
   "events": [
     {
-      "id": 5928101,
-      "user": {
-        "id": "abc123",
-        "name": "Adam"
-      },
-      "category": "animal welfare",
-      "organizer": "Adam",
-      "title": "Cat Cabaret",
-      "description": "Yay felines!",
-      "location": "Meow Town",
-      "date": "2019-01-03T21:54:00.000Z",
-      "time": "2:00",
-      "attendees": [
-        {
-          "id": "abc123",
-          "name": "Adam Jahr"
-        },
-        {
-          "id": "def456",
-          "name": "Gregg Pollack"
-        },
-        {
-          "id": "ghi789",
-          "name": "Beth Swanson"
-        },
-        {
-          "id": "jkl101",
-          "name": "Mary Gordon"
-        }
-      ]
-    },
-    {
-      "id": 8419988,
-      "user": {
-        "id": "abc123",
-        "name": "Adam"
-      },
-      "category": "animal welfare",
-      "organizer": "Adam",
-      "title": "Kitty Cluster",
-      "description": "Yay cats!",
-      "location": "Catlandia",
-      "date": "2019-01-31T22:09:00.000Z",
-      "time": "7:00",
-      "attendees": [
-        {
-          "id": "ghi789",
-          "name": "Beth Swanson"
-        },
-        {
-          "id": "jkl101",
-          "name": "Mary Gordon"
-        }
-      ]
-    },
-    {
       "id": 4582797,
       "user": {
         "id": "abc123",
@@ -74,48 +18,6 @@
           "id": "abc123",
           "name": "Adam Jahr"
         },
-        {
-          "id": "ghi789",
-          "name": "Beth Swanson"
-        },
-        {
-          "id": "jkl101",
-          "name": "Mary Gordon"
-        }
-      ]
-    },
-    {
-      "id": 1895827,
-      "user": {
-        "id": "10021",
-        "name": "Cynthia Adhiambo"
-      },
-      "category": "Technology and science",
-      "organizer": {
-        "id": "10021",
-        "name": "Cynthia Adhiambo"
-      },
-      "title": "AI tomorrow",
-      "description": "",
-      "location": "Nairobi",
-      "date": "2020-04-11T14:24:00.000Z",
-      "time": "8:00",
-      "attendees": []
-    },
-    {
-      "id": 5,
-      "user": {
-        "id": "123rot",
-        "name": "Mike Gatanga"
-      },
-      "title": "Vue Users Group",
-      "date": "Nov 12 2018",
-      "time": "12:00",
-      "location": "132 N Magnolia Street, Orlando, Florida",
-      "description": "We're going to clean up this park.",
-      "organizer": "Adam Jahr",
-      "category": "nature",
-      "attendees": [
         {
           "id": "ghi789",
           "name": "Beth Swanson"
@@ -237,24 +139,6 @@
           "name": "Mary Gordon"
         }
       ]
-    },
-    {
-      "id": 5946236,
-      "user": {
-        "id": "10021",
-        "name": "Cynthia Adhiambo"
-      },
-      "category": "Bussiness and Entrepreneurship",
-      "organizer": {
-        "id": "10021",
-        "name": "Cynthia Adhiambo"
-      },
-      "title": "Startups 101",
-      "description": "A look into what it takes to successfully run a startup",
-      "location": "Lagos, Nigeria",
-      "date": "2020-04-01T10:11:00.000Z",
-      "time": "10:00",
-      "attendees": []
     },
     {
       "id": 3111012,
