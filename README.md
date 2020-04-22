@@ -1,4 +1,11 @@
 # Event manager App
+## Features
+### The user should be able to:
+1. Create and post a new event and its details
+2. Navigate to a created event
+3. Edit an event
+4. Delete a specific Event
+5. View a list of all events
 ## Pre-requisites:
 ### Vue CLI
 ### Vue Router
@@ -39,7 +46,7 @@ npm install axios
 ```
 import axios from 'axios'
 ```
-Learn more on the [Axios library] (https://www.npmjs.com/package/axios)
+Learn more on the [Axios library](https://www.npmjs.com/package/axios)
 ### Vuex
 ```
 npm install vuex

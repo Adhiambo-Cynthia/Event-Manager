@@ -18,6 +18,11 @@
     <address>{{ event.location }}</address>
     <h2>Event details</h2>
     <p>{{ event.description }}</p>
+    <BaseButton
+        @click.prevent="editEvent()"
+        buttonClass="-fill-gradient"
+        >EDIT EVENT
+      </BaseButton>
     <h2>
       Attendees
       <span class="badge -fill-gradient">{{
@@ -72,6 +77,13 @@ export default {
           name: "Events"
         });
       });
+    },
+    editEvent() {
+     this.$router.push({
+          name: "EditEvent",
+          params: {id: this.id}
+        });
+      
     }
   }
 };

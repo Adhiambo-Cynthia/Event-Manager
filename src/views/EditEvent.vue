@@ -1,8 +1,8 @@
 <template>
   <div class="about">
-    <h2>Create an Event {{ user.user.name }}</h2>
+    <h2>Edit this event {{ user.user.name }}</h2>
     <!-- <p>Total users {{ totaluserss }}</p> -->
-    <form @submit.prevent="createEvent">
+    <form @submit.prevent="editEvent">
       <BaseSelect
         label="Select a Category"
         v-model="event.category"
@@ -69,10 +69,11 @@
         </select>
       </div>
       <BaseButton
+        @click.prevent="editEvent(event.id)"
         type="submit"
         buttonClass="-fill-gradient"
-        :disabled="$v.$anyError"
-      >CREATE EVENT</BaseButton>
+        >SAVE EDITS
+      </BaseButton>
       <p v-if="$v.$anyError" class="errorMessage">
         Please fill out the required field(s)
       </p>
@@ -88,6 +89,7 @@ import Datepicker from "vuejs-datepicker";
 import NProgress from "nprogress";
 import { required } from "vuelidate/lib/validators";
 export default {
+  props: ["id"],
   components: {
     Datepicker
   },
@@ -98,7 +100,7 @@ export default {
     }
     return {
       times: times,
-      event: this.createFreshEvent()
+      event: this.mounted()
     };
   },
   validations: {
@@ -114,7 +116,11 @@ export default {
     // totaluserss() {
     //   return this.$store.getters.totalusers;
     // },
-    ...mapState({ user: "user", categories: "categories" })
+    ...mapState({
+      user: "user",
+      categories: "categories",
+      Originalevent: state => state.events.event
+    })
     // {
     //   user() {
     //     return this.$store.state.user;
@@ -122,44 +128,43 @@ export default {
     // }
   },
   methods: {
-    createEvent() {
+    editEvent() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         NProgress.start();
         // if (this.$store.events.state.events.id)
         this.$store
-          .dispatch("events/createEvent", this.event)
+          .dispatch("events/edittheEvent", this.event)
           .then(() => {
             this.$router.push({
               name: "ShowEvent",
               params: { id: this.event.id }
             });
-            this.event = this.createFreshEvent();
           })
           .catch(() => {
             NProgress.done(); // <-- if errors out stop the progress bar
           });
       }
     },
-    createFreshEvent() {
+    mounted() {
       const user = this.$store.state.user.user;
-      const id = Math.floor(Math.random() * 10000000);
+      const id = this.id;
+      const category = this.$store.state.events.event.category
       return {
         id: id,
         user: user,
-        category: "",
+        category: category,
         organizer: user,
-        title: "",
-        description: "",
-        location: "",
-        date: "",
-        time: "",
-        attendees: []
+        title: '',
+        description: '',
+        location: '',
+        date: '',
+        time: ''
+        
       };
-    },
-  
-}
-}
+    }
+  }
+};
 </script>
 
 <style scoped>

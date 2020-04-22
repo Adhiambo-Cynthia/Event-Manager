@@ -5,7 +5,7 @@
       <nav>
         <router-link :to="{ name: 'Events' }">Your Events</router-link>
         <router-link :to="{ name: 'CreateEvent' }">Create Event</router-link>
-        <router-link :to="{ name: 'Example' }">Example</router-link>
+        <!-- <router-link :to="{ name: 'Example' }">Example</router-link> -->
       </nav>
     </div>
   </div>

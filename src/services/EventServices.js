@@ -33,5 +33,8 @@ export default {
   }, 
   deleteEvent(id){
     return apiClient.delete("/events/" + id)
+  },
+  editEvent(event, id){
+    return apiClient.put("/events/" + id, event)
   }
 };

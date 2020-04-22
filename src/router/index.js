@@ -21,6 +21,12 @@ const routes = [
     // alias: "/about"
   },
   {
+    path: "/edit_event/:id",
+    name: "EditEvent",
+    component: () => import("../views/EditEvent.vue"),
+    props: true
+  },
+  {
     path: "/show_event/:id",
     name: "ShowEvent",
     component: () => import("../views/ShowEvent.vue"),
