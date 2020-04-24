@@ -1,28 +1,35 @@
 <template>
   <div>
-    event {{ id }}
-    <span>
+    <div class="event-cover">
+      Event {{ id }}
+
+      <div class="event-header">
+        <h1 class="title">{{ event.title }}</h1>
+        <div class="eyebrow">
+          <BaseIcon name="calendar"></BaseIcon> @{{ event.time }} on
+          {{ event.date | date }}
+        </div>
+        <h5>Organized by {{ event.organizer ? event.organizer.name : "" }}</h5>
+        <h5>Category: {{ event.category }}</h5>
+      </div>
+      <div>
+        <BaseIcon name="map"><h2>Location</h2></BaseIcon>
+      </div>
+      <address>{{ event.location }}</address>
+      <h2>Event details</h2>
+      <p>{{ event.description }}</p>
+    
+    <div class="butns">
       <BaseButton
         @click.prevent="deleteEvent(event.id)"
         buttonClass="-fill-gradient"
-        >DELETE EVENT
+        ><BaseIcon name="delete"></BaseIcon>
+        DELETE EVENT
       </BaseButton>
-    </span>
-    <div class="event-header">
-      <span class="eyebrow">@{{ event.time }} on {{ event.date | date }}</span>
-      <h1 class="title">{{ event.title }}</h1>
-      <h5>Organized by {{ event.organizer ? event.organizer.name : "" }}</h5>
-      <h5>Category: {{ event.category }}</h5>
-    </div>
-    <BaseIcon name="map"><h2>Location</h2></BaseIcon>
-    <address>{{ event.location }}</address>
-    <h2>Event details</h2>
-    <p>{{ event.description }}</p>
-    <BaseButton
-        @click.prevent="editEvent()"
-        buttonClass="-fill-gradient"
+      <BaseButton @click.prevent="editEvent()" buttonClass="-fill-gradient"
         >EDIT EVENT
       </BaseButton>
+    </div>
     <h2>
       Attendees
       <span class="badge -fill-gradient">{{
@@ -39,6 +46,7 @@
         {{ attendee.name }}
       </li>
     </ul>
+  </div>
   </div>
 </template>
 
@@ -79,11 +87,10 @@ export default {
       });
     },
     editEvent() {
-     this.$router.push({
-          name: "EditEvent",
-          params: {id: this.id}
-        });
-      
+      this.$router.push({
+        name: "EditEvent",
+        params: { id: this.id }
+      });
     }
   }
 };
@@ -98,6 +105,14 @@ export default {
 }
 .event-header > .title {
   margin: 0;
+}
+.event-cover {
+  text-align: center;
+  /* background-image: url("~@/assets/ShowEv.JPG"); */
+  background-color: linear-gradient(to right #363232, #c0bdbf, #363232);
+}
+.butns {
+  display: inline-flex;
 }
 .list-group {
   margin: 0;

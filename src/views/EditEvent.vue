@@ -100,7 +100,17 @@ export default {
     }
     return {
       times: times,
-      event: this.mounted()
+      event: {
+        id: this.id,
+        user: this.$store.state.user.user,
+        category: this.$store.state.events.event.category,
+        organizer: this.user,
+        title: this.$store.state.events.event.title,
+        description: this.$store.state.events.event.description,
+        location: this.$store.state.events.event.location,
+        date: this.$store.state.events.event.date,
+        time: this.$store.state.events.event.time
+      }
     };
   },
   validations: {
@@ -146,23 +156,22 @@ export default {
           });
       }
     },
-    mounted() {
-      const user = this.$store.state.user.user;
-      const id = this.id;
-      const category = this.$store.state.events.event.category
-      return {
-        id: id,
-        user: user,
-        category: category,
-        organizer: user,
-        title: '',
-        description: '',
-        location: '',
-        date: '',
-        time: ''
-        
-      };
-    }
+    // mounted() {
+    //   const user = this.$store.state.user.user;
+    //   const id = this.id;
+    //   const category = this.$store.state.events.event.category;
+    //   return {
+    //     id: id,
+    //     user: user,
+    //     category: category,
+    //     organizer: user,
+    //     title: "",
+    //     description: "",
+    //     location: "",
+    //     date: "",
+    //     time: ""
+    //   };
+    // }
   }
 };
 </script>

@@ -30,6 +30,7 @@ export default {
   font-weight: 600;
   white-space: nowrap;
   transition: all 0.2s linear;
+  margin-right: 15px;
 }
 .button:hover {
   -webkit-transform: scale(1.02);
@@ -45,7 +46,7 @@ export default {
   outline: 0;
 }
 .button.-fill-gradient {
-  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  background: linear-gradient(to right, #790857, #550202);
   color: #ffffff;
 }
 .button:disabled {

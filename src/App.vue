@@ -7,6 +7,7 @@
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Lobster&family=Lobster+Two:wght@700&family=Marcellus+SC&display=swap');
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -20,9 +21,10 @@ body {
 }
 #app {
   box-sizing: border-box;
-  width: 500px;
+  width: 80%;
   padding: 0 20px 20px;
-  margin: 0 auto;
+  margin: auto;
+  align-content: center;
 }
 hr {
   box-sizing: content-box;
@@ -30,14 +32,19 @@ hr {
   overflow: visible;
 }
 a {
-  color: #023b22;
-  font-weight: 600;
-  background-color: transparent;
+  color: white;
+  font-weight: bolder;
   margin-right: 10px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: none;
+  background-color:rgb(61, 0, 0); 
+  padding: 3px;
+  border-radius: 4px;
+
 }
-img {
-  border-style: none;
-  width: 100%;
+a:hover{
+  opacity: 0.7;
 }
 h1,
 h2,
@@ -45,15 +52,16 @@ h3,
 h4,
 h5,
 h6 {
-  display: flex;
+  
   align-items: center;
-  font-family: "Montserrat", sans-serif;
 }
 h1 {
+  font-family: 'Fredericka the Great', cursive;
   font-size: 50px;
   font-weight: 700;
 }
 h2 {
+  font-family: 'Marcellus SC', serif;
   font-size: 38px;
   font-weight: 700;
 }
@@ -82,6 +90,10 @@ small {
 }
 .eyebrow {
   font-size: 20px;
+  
+}
+.errorMessage{
+  color: rgb(202, 17, 17);
 }
 .-text-primary {
   color: #39b982;
@@ -104,17 +116,18 @@ small {
 .badge {
   display: inline-flex;
   height: 26px;
-  width: auto;
+  width: 40px;
   padding: 0 7px;
   margin: 0 5px;
   background: transparent;
-  border-radius: 13px;
+  border-radius: 5px;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 26px;
+  text-align: center;
 }
 .badge.-fill-gradient {
-  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  background: linear-gradient(to right, #77034a, #380101);
   color: #fff;
 }
 
@@ -219,7 +232,7 @@ select {
     no-repeat right 12px center;
   background-size: 8px 10px;
   border: solid 1px rgba(0, 0, 0, 0.4);
-  border-radius: 0;
+  border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -230,7 +243,7 @@ select:focus {
 }
 select:focus::ms-value {
   color: #000;
-  background: #fff;
+  background: rgb(145, 142, 142);
 }
 select::ms-expand {
   opacity: 0;

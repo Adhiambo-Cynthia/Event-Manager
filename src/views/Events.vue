@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <h1>Events Listing for {{user.user.name}}</h1>
+    <h2>Events Listing for {{user.user.name}}</h2>
     <EventCard v-for="event in events.events" :key="event.id" :event="event" />
     <template v-if="page != 1">
       <router-link

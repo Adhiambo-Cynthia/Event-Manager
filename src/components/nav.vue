@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="nav" class="nav">
-      <router-link to="/" class="brand">CAD Event Manager</router-link>
+      <h1>CAD Event Manager</h1>
       <nav>
         <router-link :to="{ name: 'Events' }">Your Events</router-link>
         <router-link :to="{ name: 'CreateEvent' }">Create Event</router-link>
@@ -17,10 +17,14 @@ export default {};
 
 <style scoped>
 .nav {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 80px;
+  background-color: rgb(207, 204, 204);
+  padding: 5px;
+  
 }
 .nav > .brand {
   font-family: "Montserrat", sans-serif;
