@@ -6,6 +6,7 @@
       <BaseSelect
         label="Select a Category"
         v-model="event.category"
+        
         :options="categories"
         @blur="$v.event.category.$touch()"
         :class="{ error: $v.event.category.$error }"
