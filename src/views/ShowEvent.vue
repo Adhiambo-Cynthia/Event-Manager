@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="event-cover">
+    <div class="event-cover" 
+    >
       Event {{ id }}
 
       <div class="event-header">
@@ -107,9 +108,10 @@ export default {
   margin: 0;
 }
 .event-cover {
+
   text-align: center;
   /* background-image: url("~@/assets/ShowEv.JPG"); */
-  background-color: linear-gradient(to right #363232, #c0bdbf, #363232);
+  background-image: linear-gradient(to right, #615959, #c0bdbf, #c0bdbf,#615959);
 }
 .butns {
   display: inline-flex;

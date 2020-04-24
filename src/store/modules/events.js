@@ -23,12 +23,12 @@ export const mutations = {
   TOTAL_EVENTS: (state, total) => {
     state.totalEvents = total;
   },
-  DELETE_EVENT: (state, event, id) => {
-    state.events.append(event => event.id === id);
-  }
-  // EDIT_EVENT: (state, event) => {
-  //   // state.events.splice(id, 1)
+  // EDIT_EVENT: (state, event, id) => {
+  //   state.events.append(event => event.id === id);
   // }
+  DELETE_EVENT: (state, id) => {
+    state.events.splice(id, 1)
+  }
 };
 export const actions = {
   createEvent: ({ commit, dispatch }, event) => {
